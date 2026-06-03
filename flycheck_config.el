@@ -126,3 +126,8 @@
   ;; optional: display current song in mode line
   (global-smudge-remote-mode))
 (setopt smudge-transport 'connect)
+<<<<<<< HEAD
+=======
+
+;;Org-Gcal
+>>>>>>> 263188b (* flycheck_config.el: got rid of those as well)
