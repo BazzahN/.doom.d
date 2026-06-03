@@ -40,7 +40,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/WORK_Local/org/")
 (setq org-roam-directory (file-truename "~/org-roam"))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -74,7 +74,12 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;;Registers
+
+;;Recommended by doctor
+(setq shell-file-name (executable-find "bash"))
+(setq-default vterm-shel "C:/Users/newtonh3/scoop/apps/emacs/current/libexec/emacs/30.2/x86_64-w64-mingw32/cmdproxy.exe")
+(setq-default explicit-shell-file-name "C:/Users/newtonh3/scoop/apps/emacs/current/libexec/emacs/30.2/x86_64-w64-mingw32/cmdproxy.exe")
+
 ;; Registers
 (set-register ?i '(file . "~/.doom.d/config.el"))
 (set-register ?t '(file . "c:/Users/newtonh3/WORK_Local/org/todo_gen.org"))
@@ -91,7 +96,7 @@
 (after! org
   (setq org-todo-keywords
         '((sequence "TODO" "UNSCHEDULED" "IN-PROGRESS" "LOI" "DONE")))
-  (setopt org-tag-alist '(("@PhD" . ?p) ("@admin" . ?a) ("@home" . ?h) ("@emacs" . ?e) ("@Shop" . ?p)))
+  (setopt org-tag-alist '(("@PhD" . ?p) ("@admin" . ?a) ("@home" . ?h) ("@emacs" . ?e) ("@Shop" . ?p) ("@Book" . ?b)))
   (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "C:/Users/newtonh3/WORK_Local/org/todo_gen.org" "Tasks")
          "* TODO %?\n %U\n %i\n")
@@ -111,18 +116,18 @@
 
 ;;Set references path
 (after! citar
-  (setopt citar-bibliography '("C:/Users/newtonh3/WORK_Local/lit/my_library.bib")) )
+  (setopt citar-bibliography '("C:/Users/newtonh3/WORK_Local/org/my_library.bib")) )
 
 
 ;; Smudge
-(use-package! smudge
-  :bind-keymap ("C-c ." . smudge-command-map)
-  :custom
-  (smudge-oauth2-client-secret "727aac0d7fbe452b9794962088cbfba9")
-  (smudge-oauth2-client-id "381409a08fad49c8b9be8ce47df884bf")
-  ;; optional: enable transient map for frequent commands
-  (smudge-player-use-transient-map t)
-  :config
-  ;; optional: display current song in mode line
-  (global-smudge-remote-mode))
-(setopt smudge-transport 'connect)
+;; (use-package! smudge
+;;   :bind-keymap ("C-c ." . smudge-command-map)
+;;   :custom
+;;   (smudge-oauth2-client-secret "727aac0d7fbe452b9794962088cbfba9")
+;;   (smudge-oauth2-client-id "381409a08fad49c8b9be8ce47df884bf")
+;;   ;; optional: enable transient map for frequent commands
+;;   (smudge-player-use-transient-map t)
+;;   :config
+;;   ;; optional: display current song in mode line
+;;   (global-smudge-remote-mode))
+;; (setopt smudge-transport 'connect)
