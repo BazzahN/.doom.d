@@ -112,6 +112,7 @@
 ;;Set references path
 (after! citar
   (setopt citar-bibliography '("~/org/my_library.bib")) )
+<<<<<<< HEAD
 
 
 ;; Smudge
@@ -126,3 +127,5 @@
   ;; optional: display current song in mode line
   (global-smudge-remote-mode))
 (setopt smudge-transport 'connect)
+=======
+>>>>>>> d020cd3 (Removed secrets)
