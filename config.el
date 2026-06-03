@@ -77,8 +77,8 @@
 ;;Registers
 ;; Registers
 (set-register ?i '(file . "~/.doom.d/config.el"))
-(set-register ?t '(file . "c:/Users/newtonh3/WORK_Local/org/todo_gen.org"))
-(set-register ?s '(file . "c:/Users/newtonh3/WORK_Local/org/supervisor_meetings.org"))
+(set-register ?t '(file . "~/org/todo_gen.org"))
+(set-register ?s '(file . "~/org/supervisor_meetings.org"))
 
 
 ;;Important key bindings
@@ -93,25 +93,25 @@
         '((sequence "TODO" "UNSCHEDULED" "IN-PROGRESS" "LOI" "DONE")))
   (setopt org-tag-alist '(("@PhD" . ?p) ("@admin" . ?a) ("@home" . ?h) ("@emacs" . ?e) ("@Shop" . ?p)))
   (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "C:/Users/newtonh3/WORK_Local/org/todo_gen.org" "Tasks")
+      '(("t" "Todo" entry (file+headline "~/org/todo_gen.org" "Tasks")
          "* TODO %?\n %U\n %i\n")
-        ("j" "Journal" entry (file+olp+datetree "C:/Users/newtonh3/WORK_Local/org/journal.org")
+        ("j" "Journal" entry (file+olp+datetree "~/org/journal.org")
          "* %?\nEntered on %U\n %i\n")
-	("s" "svisor meetings" entry (file+olp+datetree "C:/Users/newtonh3/WORK_Local/org/supervisor_meetings.org")
+	("s" "svisor meetings" entry (file+olp+datetree "~/org/supervisor_meetings.org")
          "**** %?\n %U")
-	("n" "Note" entry (file+headline "C:/Users/newtonh3/WORK_Local/org/todo_gen.org" "Notes")
+	("n" "Note" entry (file+headline "~/org/todo_gen.org" "Notes")
          "* %? %^G\n%U" :empty-lines 1)
-	("m" "Manual Cookbook" entry (file "C:/Users/newtonh3/WORK_Local/org/recipes.org")
+	("m" "Manual Cookbook" entry (file "~/org/recipes.org")
          "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n"))))
 
 ;;Org Roam included
-(after! flyspell
-  (setopt ispell-program-name "C:/Users/newtonh3/scoop/apps/aspell/0.60.8.2-1/bin/aspell.exe"))
+;; (after! flyspell
+;;   (setopt ispell-program-name "C:/Users/newtonh3/scoop/apps/aspell/0.60.8.2-1/bin/aspell.exe"))
 
 
 ;;Set references path
 (after! citar
-  (setopt citar-bibliography '("C:/Users/newtonh3/WORK_Local/lit/my_library.bib")) )
+  (setopt citar-bibliography '("~/org/my_library.bib")) )
 
 
 ;; Smudge
