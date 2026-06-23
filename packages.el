@@ -61,3 +61,8 @@
 ;; Fetch from GitHub
 (package! simple-httpd)
 (package! smudge)
+
+;; math delimiters package
+(package! math-delimiters
+  :recipe (:host github :repo "oantolin/math-delimiters"
+           :files ("math-delimiters.el")))

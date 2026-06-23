@@ -40,6 +40,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
+
 (setq org-directory "~/WORK_Local/org/")
 (setq org-roam-directory (file-truename "~/org-roam"))
 
@@ -76,9 +77,9 @@
 
 
 ;;Recommended by doctor
-(setq shell-file-name (executable-find "bash"))
-(setq-default vterm-shel "C:/Users/newtonh3/scoop/apps/emacs/current/libexec/emacs/30.2/x86_64-w64-mingw32/cmdproxy.exe")
-(setq-default explicit-shell-file-name "C:/Users/newtonh3/scoop/apps/emacs/current/libexec/emacs/30.2/x86_64-w64-mingw32/cmdproxy.exe")
+;(setq shell-file-name (executable-find "bash"))
+;(setq-default vterm-shel "C:/Users/newtonh3/scoop/apps/emacs/current/libexec/emacs/30.2/x86_64-w64-mingw32/cmdproxy.exe")
+;(setq-default explicit-shell-file-name "C:/Users/newtonh3/scoop/apps/emacs/current/libexec/emacs/30.2/x86_64-w64-mingw32/cmdproxy.exe")
 
 ;; Registers
 (set-register ?i '(file . "~/.doom.d/config.el"))
@@ -87,8 +88,11 @@
 
 
 ;;Important key bindings
+(map! "C-x C-e" #'elfeed)
+
 (map! :map org-mode-map
-      "C-c d" #'cdlatex-mode)
+      "C-c d" #'org-cdlatex-mode
+      "$" #'math-delimiters-insert)
 
 
 
@@ -96,7 +100,7 @@
 (after! org
   (setq org-todo-keywords
         '((sequence "TODO" "UNSCHEDULED" "IN-PROGRESS" "LOI" "DONE")))
-  (setopt org-tag-alist '(("@PhD" . ?p) ("@admin" . ?a) ("@home" . ?h) ("@emacs" . ?e) ("@Shop" . ?p) ("@Book" . ?b)))
+  (setopt org-tag-alist '(("@PhD" . ?p) ("@admin" . ?a) ("@home" . ?h) ("@emacs" . ?e) ("@Meeting" . ?m) ("@Book" . ?b)))
   (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "C:/Users/newtonh3/WORK_Local/org/todo_gen.org" "Tasks")
          "* TODO %?\n %U\n %i\n")
@@ -109,10 +113,33 @@
 	("m" "Manual Cookbook" entry (file "C:/Users/newtonh3/WORK_Local/org/recipes.org")
          "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n"))))
 
+(after! org-appear
+  (setq org-appear-inside-latex t)
+  (setq org-appear-autosubmarkers t)
+  )
+
+;; (after! server
+;;   (unless (server-running-p)
+;;     (server-start)))
+
+(after! tex
+  (setq TeX-source-correlate-mode t)
+  (setq TeX-source-correlate-start-server t)
+  (add-to-list
+   'TeX-view-program-list
+   '("Sioyek"
+     "sioyek.exe --reuse-window \
+      --forward-search-file %b \
+      --forward-search-line %n \
+      %o"))
+
+  (setq TeX-view-program-selection
+        '((output-pdf "Sioyek"))))
+
+
 ;;Org Roam included
 (after! flyspell
   (setopt ispell-program-name "C:/Users/newtonh3/scoop/apps/aspell/0.60.8.2-1/bin/aspell.exe"))
-
 
 ;;Set references path
 (after! citar
